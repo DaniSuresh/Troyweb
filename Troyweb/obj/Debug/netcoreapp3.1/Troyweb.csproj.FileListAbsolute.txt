@@ -1,0 +1,10 @@
+C:\Troyweb\Troyweb\bin\Debug\netcoreapp3.1\Troyweb.deps.json
+C:\Troyweb\Troyweb\bin\Debug\netcoreapp3.1\Troyweb.dll
+C:\Troyweb\Troyweb\bin\Debug\netcoreapp3.1\Troyweb.pdb
+C:\Troyweb\Troyweb\obj\Debug\netcoreapp3.1\Troyweb.csproj.AssemblyReference.cache
+C:\Troyweb\Troyweb\obj\Debug\netcoreapp3.1\Troyweb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Troyweb\Troyweb\obj\Debug\netcoreapp3.1\Troyweb.AssemblyInfoInputs.cache
+C:\Troyweb\Troyweb\obj\Debug\netcoreapp3.1\Troyweb.AssemblyInfo.cs
+C:\Troyweb\Troyweb\obj\Debug\netcoreapp3.1\Troyweb.csproj.CoreCompileInputs.cache
+C:\Troyweb\Troyweb\obj\Debug\netcoreapp3.1\Troyweb.dll
+C:\Troyweb\Troyweb\obj\Debug\netcoreapp3.1\Troyweb.pdb

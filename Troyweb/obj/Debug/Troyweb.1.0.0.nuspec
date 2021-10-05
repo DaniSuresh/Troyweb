@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Troyweb</id>
+    <version>1.0.0</version>
+    <authors>Troyweb</authors>
+    <description>Package Description</description>
+    <repository url="https://github.com/DaniSuresh/Troyweb" />
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Troyweb\Troyweb\bin\Debug\netcoreapp3.1\Troyweb.dll" target="lib\netcoreapp3.1\Troyweb.dll" />
+  </files>
+</package>
