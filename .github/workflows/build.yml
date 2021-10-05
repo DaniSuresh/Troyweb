@@ -55,5 +55,5 @@ jobs:
         #To Packackage dotnet Application
       - name: Package Nuget Package
         run: |
-          dotnet pack .\Troyweb --configuration Release
+          dotnet pack .\Troyweb --configuration Debug
           
