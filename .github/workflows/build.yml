@@ -60,6 +60,6 @@ jobs:
           #To Add nuget artifacts repository as source to push artifacts.
       - name: AddSource
         run: |
-          nuget sources Add -Name Artifactory -Source https://daniainavilli.jfrog.io/artifactory/api/nuget/Troy-web -username <USERNAME> -password <PASSWORD>
+          nuget sources Add -Name Artifactory -Source "https://daniainavilli.jfrog.io/artifactory/api/nuget/Troy-web" -username <USERNAME> -password <PASSWORD>
           dotnet nuget add source "https://nuget.pkg.github.com/daniainavilli/index.json" -n "github"
           
