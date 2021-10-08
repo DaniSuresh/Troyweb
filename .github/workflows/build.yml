@@ -65,6 +65,9 @@ jobs:
         #To Push nuget package to artifacts repository using GitHub Secrets.
       - name: Push Nuget Package
         run: |         
-          dotnet nuget push "C:\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg"  --api-key ${{ secrets.JFROG_API_KEY }} --source "jfrog"
+          dotnet nuget push "C:\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg"  --api-key ${{ secrets.JFROG_TOKEN }} --source "jfrog"
+          dotnet nuget push "C:\Troyweb\Troyweb\bin\Debug\Troyweb*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github" --skip-duplicate
+
+
           
         
