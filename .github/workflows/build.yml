@@ -70,5 +70,5 @@ jobs:
 
           # (Optional) A directory where all your .nupkg files are located.
           # If not specified, defaults to the current directory.
-          publish-dir: 'C:\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg'
+          publish-dir: 'Troyweb.1.0.0.nupkg'
           
