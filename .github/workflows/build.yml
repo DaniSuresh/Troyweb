@@ -64,11 +64,17 @@ jobs:
           dotnet nuget add source ${{ secrets.JFROG_URL_NUGET }} --name "jfrog" --username  ${{ secrets.jfrog_USER_NAME }} --password ${{ secrets.JFROG_PASSWORD }}
           dotnet nuget add source "https://nuget.pkg.github.com/DaniSuresh/index.json" -n "github"
 
-     #To Push nuget package to artifacts repository using GitHub Secrets.
-      - name: Push Nuget Package C:\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg
-        run: |         
-           dotnet nuget push "https://nuget.pkg.github.com/DaniSuresh/index.json"  --api-key ${{ secrets.JFROG_API_KEY }} --source "C:\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg"
-           nuget push "C:\Troyweb\Troyweb\bin\Debug\Troyweb*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github"
-           
-      
-      
+    
+      - uses: EasyDesk/action-nuget-push@v1
+        with:
+          # (Required) The API key used to authenticate the upload of the package.
+          # Can be generated via the NuGet portal.
+          nuget-api-key: 'oy2nrkdyrgptu4fzywealeorqyqhihfu3mx5oudbl7go7y'
+
+          # (Optional) The URL to the NuGet source where packages will be uploaded.
+          # If not specified, defaults to nuget.org (https://api.nuget.org/v3/index.json).
+          nuget-url: 'https://daniainavilli.jfrog.io/artifactory/local/Troyweb.1.0.0.nupkg'
+
+          # (Optional) A directory where all your .nupkg files are located.
+          # If not specified, defaults to the current directory.
+          publish-dir: 'C:\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg'
