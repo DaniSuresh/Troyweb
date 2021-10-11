@@ -64,11 +64,11 @@ jobs:
           dotnet nuget add source ${{ secrets.JFROG_URL_NUGET }} --name "jfrog" --username  ${{ secrets.jfrog_USER_NAME }} --password ${{ secrets.JFROG_PASSWORD }}
           dotnet nuget add source "https://nuget.pkg.github.com/DaniSuresh/index.json" -n "github"
 
-     ##To Push nuget package to artifacts repository using GitHub Secrets.
+     #To Push nuget package to artifacts repository using GitHub Secrets.
       - name: Push Nuget Package
         run: |         
-          dotnet nuget push "Troyweb.1.0.0.nupkg"  --api-key ${{ secrets.JFROG_API_KEY }} --source "https://daniainavilli.jfrog.io/ui/admin/repositories/local"
-          dotnet nuget push "C:\Troyweb\Troyweb\bin\Debug\Troyweb*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github" --skip-duplicate
+           nuget push "C:\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg"  --api-key ${{ secrets.NEXUS_API_KEY }} --source "https://daniainavilli.jfrog.io/artifactory/api/nuget/local"
+           nuget push "Troyweb.1.0.0.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github" --skip-duplicate
       
       
       
