@@ -57,7 +57,7 @@ jobs:
         run: |
           dotnet pack .\Troyweb --configuration Debug
           
-          nuget push "Troyweb.1.0.0.nupkg"-Source "https://daniainavilli.jfrog.io/ui/admin/repositories/remote/Troy-web"
+          nuget push "C:\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg"-Source "https://daniainavilli.jfrog.io/ui/admin/repositories/remote/Troy-web"
         
         
 
