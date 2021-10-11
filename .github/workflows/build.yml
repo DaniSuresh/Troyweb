@@ -69,4 +69,4 @@ jobs:
       - name: Push Nuget Package
         run: |         
           nuget push "C:\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg" -Source "https://daniainavilli.jfrog.io/ui/admin/repositories/local/local"
-          dotnet nuget push "C:\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github" --skip-duplicate
+          dotnet nuget push "https://nuget.pkg.github.com/DaniSuresh/index.json"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github" --skip-duplicate
