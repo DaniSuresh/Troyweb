@@ -68,7 +68,7 @@ jobs:
       - name: Push Nuget Package
         run: |         
            nuget push "C:\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg"  --api-key ${{ secrets.NEXUS_API_KEY }} --source "https://daniainavilli.jfrog.io/artifactory/api/nuget/local"
-           nuget push "Troyweb.1.0.0.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github" --skip-duplicate
+           nuget push "Troyweb.1.0.0.nupkg"  --source "github" --skip-duplicate
       
       
       
