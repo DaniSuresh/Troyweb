@@ -63,17 +63,7 @@ jobs:
          name: Troyweb
          path: 'D:\a\Troyweb\Troyweb\Troyweb'
          
-     #To Add nuget artifacts repository as source to push artifacts.
-      - name: AddSource
-        run: |
-          dotnet nuget add source ${{ secrets.JFROG_URL_NUGET }} --name "jfrog" --username  ${{ secrets.JFROG_USER_NAME }} --password ${{ secrets.JFROG_PASSWORD }}
-          dotnet nuget add source "https://nuget.pkg.github.com/DaniSuresh/index.json" -n "github"
-          
-    #To Push nuget package to artifacts repository using GitHub Secrets.
-      - name: Push Nuget Package
-        run: |         
-          dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\Troyweb.1.0.0.nupkg"  --api-key ${{ secrets.JFROG_API_KEY }} --source "jfrog"
-          dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\Troyweb.1.0.0.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github" --skip-duplicate
+     
          
                     
           
