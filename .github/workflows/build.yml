@@ -61,8 +61,8 @@ jobs:
           #To Push Artifacts to Git repository.
       - uses: actions/upload-artifact@v2
         with:
-          name: Troyweb.zip
-          path: .\*.zip
+          name: Troyweb.1.0.0.nupkg
+          path: .\*.txt
     
   
     
