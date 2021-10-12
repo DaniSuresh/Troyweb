@@ -62,7 +62,7 @@ jobs:
         with:
          name: packages
          path: "**/*.nupkg"
-         working directory: ./Troyweb
+         
                     
           
           
