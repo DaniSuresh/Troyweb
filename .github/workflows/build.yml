@@ -61,7 +61,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
          name: packages
-         path: "**/*.nupkg"
+         path: "/*.nupkg"
          
                     
           
