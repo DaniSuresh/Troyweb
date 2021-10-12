@@ -56,13 +56,20 @@ jobs:
       - name: Package Nuget Package
         run: |
           dotnet pack .\Troyweb --configuration Debug
-          
+        #To Add nuget artifacts repository as source to push artifacts.
+      - name: AddSource
+        run: |
+          dotnet nuget add source "https://nuget.pkg.github.com/DaniSuresh/index.json" -n "github"
+        #To Push nuget package to artifacts.
+      - name: Push Nuget Package
+        run: |         
+          dotnet nuget push "D:\Troyweb\Troyweb\Troyweb\bin\Debug*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github" --skip-duplicate
           
           #To Push Artifacts to Git repository.
       - uses: actions/upload-artifact@v2
         with:
           name: Troyweb.zip
-          path: C:\Troyweb.zip
+          path: .\*.zip
     
   
     
