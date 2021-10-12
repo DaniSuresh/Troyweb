@@ -60,7 +60,7 @@ jobs:
       - name: Archive Nuget Package
         uses: actions/upload-artifact@v1
         with:
-         name: packages
+         name: Troyweb
          path: 'D:\a\Troyweb\Troyweb\Troyweb'
          
                     
