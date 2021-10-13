@@ -63,14 +63,14 @@ jobs:
         with:
          name: Troyweb
          path: 'D:\a\Troyweb\Troyweb\Troyweb'
-         
-          #To Push Artifacts to Git repository.
-      - uses: actions/upload-artifact@v2
-        with:
-          name: Troyweb.zip
-          path: 'Downloads'
-     
-
+           
+       #To Push Artifacts to Jfrog repository.
+      - name: 'Troyweb'
+        run: |
+          nuget push 'Troyweb.1.0.0.nupkg' -Source 'https://daniainavilli.jfrog.io/artifactory/api/nuget/local/'
+          nuget setapikey <USERNAME>:<PASSWORD> -Source JfrogArtifactory
+          
+          
          
                     
           
