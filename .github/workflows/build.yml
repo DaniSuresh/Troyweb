@@ -63,6 +63,18 @@ jobs:
          name: Troyweb
          path: 'D:\a\Troyweb\Troyweb\Troyweb'
          
+      - uses: actions/checkout@v2
+      - run: mkdir -p 'Troyweb'
+      - run: echo 'D:\a\Troyweb\Troyweb\Troyweb' 
+      - uses: actions/upload-artifact@v2
+        with:
+         name: Troyweb
+         path: 'D:\a\Troyweb\Troyweb\Troyweb'
+     
+
+     
+
+         
      
          
                     
