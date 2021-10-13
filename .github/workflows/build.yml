@@ -68,7 +68,7 @@ jobs:
       - name: 'Troyweb.1.0.0.nupkg'
         run: |
           nuget push 'Troyweb.1.0.0.nupkg' -Source 'D:\a\Troyweb\Troyweb\Troyweb'
-          target url:'https://daniainavilli.jfrog.io/artifactory/local/'
+          url:'https://daniainavilli.jfrog.io/artifactory/local/'
           
           
          
