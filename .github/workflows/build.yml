@@ -65,10 +65,10 @@ jobs:
          path: 'D:\a\Troyweb\Troyweb\Troyweb'
            
        #To Push Artifacts to Jfrog repository.
-      - name: 'Troyweb'
+      - name: 'Troyweb.1.0.0.nupkg'
         run: |
-          nuget push 'Troyweb.1.0.0.nupkg' -Source 'https://daniainavilli.jfrog.io/artifactory/api/nuget/local/'
-          nuget setapikey <USERNAME>:<PASSWORD> -Source JfrogArtifactory
+          nuget push 'Troyweb.1.0.0.nupkg' -Source 'D:\a\Troyweb\Troyweb\Troyweb'
+          target url:'https://daniainavilli.jfrog.io/artifactory/local/'
           
           
          
