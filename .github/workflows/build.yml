@@ -63,15 +63,9 @@ jobs:
          name: Troyweb
          path: 'D:\a\Troyweb\Troyweb\Troyweb'
          
-      - uses: actions/checkout@v2
-      - run: mkdir -p 'Troyweb1'
-      - run: echo 'D:\a\Troyweb\Troyweb\Troyweb' 
-      - uses: actions/upload-artifact@v2
-        with:
-         name: Troyweb
-         path: 'D:\a\Troyweb\Troyweb\Troyweb'
+      
          
-      - uses: actions/download-artifact@v2
+      - uses: actions/upload-artifact@v2
         with:
          name: Troyweb
          path: 'https://daniainavilli.jfrog.io/artifactory/local/' 
