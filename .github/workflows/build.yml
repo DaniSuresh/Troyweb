@@ -68,7 +68,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Troyweb.zip
-          path: C:\Users\india\Downloads
+          path: 'Downloads'
      
 
          
