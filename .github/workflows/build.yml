@@ -73,8 +73,8 @@ jobs:
          
       - uses: actions/download-artifact@v2
         with:
-         name: my-artifact
-         path: 'https://daniainavilli.jfrog.io/artifactory/api/nuget/local' 
+         name: Troyweb
+         path: 'https://daniainavilli.jfrog.io/artifactory/local/' 
 
             
 
