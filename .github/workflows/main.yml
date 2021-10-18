@@ -1,0 +1,17 @@
+on: push
+name: Main Workflow
+jobs:
+  artifactoryUpload:
+    name: Upload Troyweb
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1.2.0
+    - name: build
+      run: ./buildmyartifact
+    - name: publish to artifactory
+      uses: advancedcsg-open/action-jfrog-cli@master
+      with:
+        url: 'https://daniainavilli.jfrog.io/ui/repos/tree/General/local'
+        credentials type: 'accesstoken'
+        accesstoken: ${{ secrets.RT_ACCESSTOKEN }}
+        args: u "dist/*"D:\a\Troyweb\Troyweb\Troyweb" --recursive=true --build-name=Troyweb
