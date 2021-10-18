@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1.2.0
     - name: build
-      run: ./Troyweb
+      run: ./Troyweb.zip
     - name: publish to artifactory
       uses: advancedcsg-open/action-jfrog-cli@master
       with:
