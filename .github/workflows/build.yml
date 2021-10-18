@@ -63,17 +63,24 @@ jobs:
         with:
          name: Troyweb
          path: 'D:\a\Troyweb\Troyweb\Troyweb'
-           
-       
-          
-          
          
-                    
-          
-          
-        
-          
-          
-  
-    
-      
+name:JFrog CLI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Ping Artifactory
+        uses: katcosgrove/jfrog-actions@master
+        with:
+            cmd: 'ping'
+        env:
+            auth: ${{ secrets.AUTH }}
+            url: ${{ secrets.URL }}
+
+         
+         
+         
+         
