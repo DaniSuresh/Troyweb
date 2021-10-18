@@ -1,5 +1,5 @@
 on: push
-name: Main Workflow
+name: Troyweb
 jobs:
   artifactoryUpload:
     name: Upload Troyweb
