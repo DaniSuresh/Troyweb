@@ -6,8 +6,8 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1.2.0
-    - name: publish to artifactory
-      uses: advancedcsg-open/action-jfrog-cli@master
+    - name: upoload to artifactory
+      uses: open/action-jfrog-cli@master
       with:
         url: 'https://daniainavilli.jfrog.io/ui/repos/tree/General/local'
         credentials type: 'accesstoken'
