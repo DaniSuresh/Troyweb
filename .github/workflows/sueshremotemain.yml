@@ -1,0 +1,14 @@
+on: push
+name: Troyweb
+jobs:
+  artifactoryUpload:
+    name: Upload Troyweb
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1.2.0
+  
+      with:
+         url: 'https://daniainavilli.jfrog.io/ui/admin/repositories/remote/suershremote'  
+         credentials type: 'accesstoken'
+         accesstoken: ${{ secrets.RT_ACCESSTOKEN }}
+         args: u "dist/*"D:\a\Troyweb\Troyweb\Troyweb" --recursive=true --build-name=Troyweb
