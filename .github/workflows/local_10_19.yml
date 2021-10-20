@@ -9,7 +9,8 @@ jobs:
   
       with:
         
-         url:  'https://daniainavilli.jfrog.io/artifactory/local_10_19/'  
-         credentials type: 'accesstoken'
-         accesstoken: ${{ secrets.local_10_19 }}
-         args: u "dist/*"D:\a\Troyweb\Troyweb\Troyweb" --recursive=true --build-name=Troyweb
+         #url:  'https://daniainavilli.jfrog.io/artifactory/local_10_19/'
+          url:  'https://daniainavilli.jfrog.io/artifactory/local10_20/'
+          credentials type: 'accesstoken'
+          accesstoken: ${{ secrets.local_10_19 }}
+          args: u "dist/*"D:\a\Troyweb\Troyweb\Troyweb" --recursive=true --build-name=Troyweb
