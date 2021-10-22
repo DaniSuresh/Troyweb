@@ -1,21 +1,3 @@
-on: push
-name: Troyweb
-jobs:
-  artifactoryUpload:
-    name: Upload Troyweb
-    runs-on: windows-latest
-    steps:
-    - uses: actions/checkout@v1.2.0
-  
-      with:
-        
-         #url:  'https://daniainavilli.jfrog.io/artifactory/local_10_19/'
-          url:  'https://daniainavilli.jfrog.io/artifactory/local10_20/'
-          credentials type: 'accesstoken'
-          accesstoken: ${{ secrets.local_10_19 }}
-          args: u "dist/*"D:\a\Troyweb\Troyweb\Troyweb" --recursive=true --build-name=Troyweb
-
-
 #To Push Artifacts to Nexus.
     - name: PushToNexus
       run: |
@@ -24,7 +6,7 @@ jobs:
           $runnumber = $env:GITHUB_RUN_NUMBER
           $JfrogArtifactName = "$ArtifactName-$runnumber"
           Compress-Archive D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\netcoreapp3.1\publish\* .\$JfrogArtifactName
-          $JfrogPassword = ConvertTo-SecureString "${{ secrets.NEXUS_PASSWORD }}" -AsPlainText -Force
+          $JfrogPassword = ConvertTo-SecureString "${{ secrets.JFROG_PASSWORD }}" -AsPlainText -Force
           $JfrogCred = New-Object System.Management.Automation.PSCredential ( "${{ secrets.JFROG_USER_NAME }}" , $JfrogPassword)
           $ArtifactSourceFile = "D:\a\Troyweb\Troyweb\$JfrogArtifactName.zip"
           $ArtifactDestinationUri = "${{ secrets.JFROG_RAW_REPO_URL }}/$JfrogArtifactName.zip"
