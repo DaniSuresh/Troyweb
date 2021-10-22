@@ -14,3 +14,20 @@ jobs:
           credentials type: 'accesstoken'
           accesstoken: ${{ secrets.local_10_19 }}
           args: u "dist/*"D:\a\Troyweb\Troyweb\Troyweb" --recursive=true --build-name=Troyweb
+
+
+#To Push Artifacts to Nexus.
+    - name: PushToNexus
+      run: |
+          $ArtifactName = "Troyweb"
+          $timestamp = Get-Date -Format "yyyy-MM-dd-HH-mm-ss"
+          $runnumber = $env:GITHUB_RUN_NUMBER
+          $JfrogArtifactName = "$ArtifactName-$runnumber"
+          Compress-Archive D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\netcoreapp3.1\publish\* .\$JfrogArtifactName
+          $JfrogPassword = ConvertTo-SecureString "${{ secrets.NEXUS_PASSWORD }}" -AsPlainText -Force
+          $JfrogCred = New-Object System.Management.Automation.PSCredential ( "${{ secrets.JFROG_USER_NAME }}" , $JfrogPassword)
+          $ArtifactSourceFile = "D:\a\Troyweb\Troyweb\$JfrogArtifactName.zip"
+          $ArtifactDestinationUri = "${{ secrets.JFROG_RAW_REPO_URL }}/$JfrogArtifactName.zip"
+          Invoke-WebRequest -uri $ArtifactDestinationUri -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
+          $ArtifactDestinationUriLatest = "${{ secrets.JFROG_RAW_REPO_URL }}/$ArtifactName-latest.zip"
+          Invoke-WebRequest -uri $ArtifactDestinationUriLatest -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
