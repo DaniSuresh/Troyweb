@@ -10,6 +10,6 @@ jobs:
       with:
         #url: 'https://daniainavilli.jfrog.io/ui/repos/tree/General/local'
          url:  'https://daniainavilli.jfrog.io/ui/admin/repositories/local/local_10_19'  
-         credentials type: 'accesstoken'
+         credentials type: '"${{ secrets.JFROG_USER_NAME }}" , $JfrogPassword'
          accesstoken: ${{ secrets.RT_ACCESSTOKEN }}
          args: u "dist/*"C:\Troyweb-main\Troyweb\bin\Debug" --recursive=true --build-name=Troyweb
