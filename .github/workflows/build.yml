@@ -51,11 +51,10 @@ jobs:
         #To build dotnet application using MSBuild
       - name: Build
         run: msbuild ./Troyweb.sln
-    
 #To Add nuget artifacts repository as source to push artifacts.
       - name: AddSource
-        run: |
-          nuget sources Add -Name JFROG -Source https://daniainavilli.jfrog.io/artifactory/api/nuget/local_10_19 -username daniainavilli@gmail.com-password Satti@8888
+        run: |  
+           nuget sources add -Name https://nuget.pkg.github.com/DaniSuresh/index.json -Source https://daniainavilli.jfrog.io/artifactory/local10_20/ -username daniainavilli@gmail.com -password Satti@8888
           
 #To Push nuget package to artifacts repository using GitHub Secrets.
      # - name: Push Nuget Package
