@@ -60,15 +60,5 @@ jobs:
 #To Add nuget artifacts repository as source to push artifacts.
       - name: AddSource
         run: |
-          NuGet add https://daniainavilli.jfrog.io/artifactory/api/nuget/local_10_19/ -Source D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg 
-          Nuget add source "https://nuget.pkg.github.com/DaniSuresh/index.json" -n "github"
-
-
-
- #To Push nuget package to artifacts repository using GitHub Secrets.
-      - name: Push Nuget Package
-        run: |         
-          Nuget push Troyweb.1.0.0.nupkg -Source https://daniainavilli.jfrog.io/artifactory/api/nuget/local_10_19/
-          Nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github" --skip-duplicate
-    
-    
+          nuget sources Add -Name Artifactory -Source https://daniainavilli.jfrog.io/artifactory/api/nuget/local_10_19 -username <USERNAME> -password <PASSWORD>
+         
