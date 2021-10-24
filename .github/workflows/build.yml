@@ -59,8 +59,8 @@ jobs:
          name: Troyweb
          path: 'D:\a\Troyweb\Troyweb\Troyweb'
          
-  #To Push Artifacts to Git repository.
-      - uses: actions/upload-artifact@v2
-        with:
-          name: Troyweb.zip
-          path: .\*.zip
+  #To Add nuget artifacts repository as source to push artifacts.
+      - name: AddSource
+        run: |
+          dotnet nuget add source ${{ secrets.JFROG_LOCAL_10_19 }} --name "jfrog" --username  ${{ secrets.JFROG_USER_NAME }} --password ${{ secrets.JFROG_PASSWORD }}
+          dotnet nuget add source "https://nuget.pkg.github.com/DaniSuresh/index.json" -n "github" 
