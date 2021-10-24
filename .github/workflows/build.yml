@@ -59,22 +59,19 @@ jobs:
          name: Troyweb
          path: 'D:\a\Troyweb\Troyweb\Troyweb'
          
-  #To Add nuget artifacts repository as source to push artifacts.
-      - name: AddSource
+
+#To Push Artifacts to Jfrog.
+      - name: PushToJfrog
         run: |
-          dotnet nuget add source ${{ secrets.JFROG_TOKEN }} --name "https://daniainavilli.jfrog.io/artifactory/local_10_19/" --username  ${{ secrets.JFROG_USER_NAME }} --password ${{ secrets.JFROG_PASSWORD }}
-          dotnet nuget add source "https://nuget.pkg.github.com/DaniSuresh/index.json" -n "github" 
-          
-          
-#To Push nuget package to artifacts repository using GitHub Secrets.
-      - name: Push Nuget Package
-        run: |         
-          dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg" --api-key ${{ secrets.TOKEN_JFROG }} --source "https://daniainavilli.jfrog.io/artifactory/local_10_19/"
-          dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github" --skip-duplicate
-          
-          
-          
-          
-          
-          
-          
+          $ArtifactName = "Troyweb"
+          $timestamp = Get-Date -Format "yyyy-MM-dd-HH-mm-ss"
+          $runnumber = $env:GITHUB_RUN_NUMBER
+          $JfrogArtifactName = "$ArtifactName-$runnumber"
+          Compress-Archive D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\netcoreapp3.1\publish\* .\$JfrogArtifactName
+          $JfrogPassword = ConvertTo-SecureString "${{ secrets.JFROG_PASSWORD }}" -AsPlainText -Force
+          $JfrogCred = New-Object System.Management.Automation.PSCredential ( "${{ secrets.JFROG_USER_NAME }}" , $JfrogPassword)
+          $ArtifactSourceFile = "D:\a\Troyweb\Troyweb\$JfrogArtifactName.zip"
+          $ArtifactDestinationUri = "${{ secrets.JFROG_RAW_REPO_URL }}/$JfrogArtifactName.zip"
+          Invoke-WebRequest -uri $ArtifactDestinationUri -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
+          $ArtifactDestinationUriLatest = "${{ secrets.JFROG_RAW_REPO_URL }}/$ArtifactName-latest.zip"
+          Invoke-WebRequest -uri $ArtifactDestinationUriLatest -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
