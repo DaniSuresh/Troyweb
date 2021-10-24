@@ -55,8 +55,8 @@ jobs:
 #To Add nuget artifacts repository as source to push artifacts.
       - name: AddSource
         run: |
-          nuget sources Add -Name JFROG -Source https://daniainavilli.jfrog.io/artifactory/api/nuget/local_10_19 -username daniainavilli@gmail
-          .com-password Satti@8888
+          nuget sources Add -Name JFROG -Source https://daniainavilli.jfrog.io/artifactory/api/nuget/local_10_19 -username daniainavilli@gmail.com-password Satti@8888
+          
 #To Push nuget package to artifacts repository using GitHub Secrets.
      # - name: Push Nuget Package
       #  run: |         
