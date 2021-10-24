@@ -51,15 +51,18 @@ jobs:
         #To build dotnet application using MSBuild
       - name: Build
         run: msbuild ./Troyweb.sln
-#To Add nuget artifacts repository as source to push artifacts.
+        
+ #To Add nuget artifacts repository as source to push artifacts.
       - name: AddSource
-        run: |  
-           nuget sources add -Name C:\Troyweb-main\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg -Source https://daniainavilli.jfrog.io/artifactory/local10_20/ -username daniainavilli@gmail.com -password Satti@8888
-
+        run: |
+          dotnet nuget add source ${{ secrets.JFROG_URL_NUGET }} --name "jfrog" --username  ${{ secrets.JFROG_USER_NAME }} --password ${{ secrets.JFROG_PASSWORD }}
+          dotnet nuget add source "https://nuget.pkg.github.com/DaniSuresh/index.json" -n "github" 
+          
 #To push nuget artifacts 
       - name: push nuget package
         run: |
-          nuget push "C:\Troyweb-main\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg" -Source "https://daniainavilli.jfrog.io/artifactory/api/nuget/local10_20/"
+          dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg"  --api-key ${{ secrets.JFROG_API_KEY }} --source "jfrog"
+          dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github" --skip-duplicate
           
     #  - name: Archive Nuget Package
      #   uses: actions/upload-artifact@v1
