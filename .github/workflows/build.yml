@@ -55,14 +55,12 @@ jobs:
       - name: AddSource
         run: |  
            nuget sources add -Name https://nuget.pkg.github.com/DaniSuresh/index.json -Source https://daniainavilli.jfrog.io/artifactory/local10_20/ -username daniainavilli@gmail.com -password Satti@8888
-          
-#To Push nuget package to artifacts repository using GitHub Secrets.
-     # - name: Push Nuget Package
-      #  run: |         
-       #   dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg"  --api-key ${{ secrets.JFROG_API_KEY }} --source "jfrog"
-        #  dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github" --skip-duplicate
-          
-          
+
+#To push nuget artifacts 
+      - name: push nuget package
+        run: |
+          nuget push Troyweb.1.0.0.nupkg -Source https://daniainavilli.jfrog.io/artifactory/api/nuget/local10_20/ "D:\a\Troyweb\Troyweb\Troyweb"
+
     #  - name: Archive Nuget Package
      #   uses: actions/upload-artifact@v1
       #  with:
