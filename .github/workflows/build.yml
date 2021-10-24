@@ -59,6 +59,9 @@ jobs:
          name: Troyweb
          path: 'D:\a\Troyweb\Troyweb\Troyweb'
          
+#To Publish dotnet application
+      - name: Publish
+        run: dotnet publish --configuration release
 
 #To Push Artifacts to Jfrog.
       - name: PushToJfrog
