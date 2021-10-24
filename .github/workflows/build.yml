@@ -61,7 +61,7 @@ jobs:
 #To push nuget artifacts 
       - name: push nuget package
         run: |
-          nuget push Troyweb.1.0.0.nupkg -Source Troyweb
+          dotnet nuget push Troyweb.1.0.0.nupkg -Source Troyweb
           dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github" --skip-duplicate
           
     #  - name: Archive Nuget Package
