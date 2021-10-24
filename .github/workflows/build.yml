@@ -60,5 +60,4 @@ jobs:
 #To Add nuget artifacts repository as source to push artifacts.
       - name: AddSource
         run: |
-          nuget sources Add -Name Artifactory -Source https://daniainavilli.jfrog.io/artifactory/api/nuget/local_10_19 -username <USERNAME> -password <PASSWORD>
-         
+          nuget sources Add -Name Artifactory -Source https://daniainavilli.jfrog.io/artifactory/api/nuget/local_10_19 
