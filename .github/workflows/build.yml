@@ -60,7 +60,7 @@ jobs:
 #To Add nuget artifacts repository as source to push artifacts.
       - name: AddSource
         run: |
-          nuget source Add -Name Troyweb.1.0.0.nupkg -Source 'D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb'
+          nuget source Add -Name Troyweb.1.0.0.nupkg -Source 'https://daniainavilli.jfrog.io/artifactory/api/nuget/local_10_19'
           nuget add source "https://nuget.pkg.github.com/DaniSuresh/index.json" -n "github"
 
 
