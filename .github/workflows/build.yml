@@ -62,13 +62,14 @@ jobs:
  #To Add nuget artifacts repository as source to push artifacts.
       - name: AddSource
         run: |
-          nuget sources Add -Name ${{ secrets.JFROG_URL_NUGET }} -Source https://daniainavilli.jfrog.io/artifactory/local_10_19/
+          nuget sources Add -Name JfrogArtifactory -Source https://daniainavilli.jfrog.io/artifactory/local
+          
          
           
 #To push nuget artifacts 
       - name: push nuget package
         run: |
-          dotnet nuget push Troyweb.1.0.0.nupkg -Source https://daniainavilli.jfrog.io/artifactory/local_10_19/
+          dotnet nuget push Troyweb.1.0.0.nupkg -Source https://daniainavilli.jfrog.io/artifactory/local
           
           
       
