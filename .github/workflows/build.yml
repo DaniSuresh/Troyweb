@@ -71,6 +71,11 @@ jobs:
           $JfrogArtifactName = "$ArtifactName-$runnumber"
           Compress-Archive D:\a\Troyweb\Troyweb\Troyweb\bin\Release\netcoreapp3.1\publish\* .\$JfrogArtifactName
           
+#To push nuget artifacts 
+      - name: push nuget package
+        run: |
+          dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Release\Troyweb.1.0.0.nupkg" --api-key ${{ secrets.TOKEN_LOCAL_10_19}}  --source "https://daniainavilli.jfrog.io/artifactory/local10_20/"
+          dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Release\Troyweb*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github"           
          
          
          
