@@ -72,7 +72,7 @@ jobs:
           Compress-Archive D:\a\Troyweb\Troyweb\Troyweb\bin\Release\netcoreapp3.1\publish\* .\$JfrogArtifactName 
           $JfrogCred =  '"${{ secrets.JFROG_USER_NAME }}" , $JfrogPassword'
           $ArtifactSourceFile = "D:\a\Troyweb\Troyweb\$JfrogArtifactName.zip"
-          $ArtifactDestination url = "https://daniainavilli.jfrog.io/artifactory/local10_19"
+          $ArtifactDestinationUrl = "https://daniainavilli.jfrog.io/artifactory/local10_19"
           Invoke-WebRequest -url $ArtifactDestinationUrl -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
           
           
