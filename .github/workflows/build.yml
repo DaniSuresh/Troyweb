@@ -73,7 +73,7 @@ jobs:
           $JfrogPassword =  "${{ secrets.JFROG_PASSWORD }}" 
           $JfrogCred =  ("${{ secrets.JFROG_USER_NAME }}" , $JfrogPassword)
           $ArtifactSourceFile = "D:\a\Troyweb\Troyweb\$JfrogArtifactName.zip"
-          $ArtifactDestinationUrl = "https://daniainavilli.jfrog.io/artifactory/local10_20
+          $ArtifactDestinationUrl = "https://daniainavilli.jfrog.io/artifactory/local10_20"
           
           
 #To push nuget artifacts 
