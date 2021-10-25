@@ -68,8 +68,8 @@ jobs:
 #To push nuget artifacts 
       - name: push nuget package
         run: |
-          dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg" -api-key ${{ secrets.local_10_19 }} -Source "Jfrog"
-          dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb*.nupkg"  -api-key ${{ secrets.TOKEN_GITHUB }} -source "github" -skip-duplicate
+          dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg" --api-key -username daniainavilli@gmail.com -password Satti@8888  -Source "Jfrog"
+          dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} -source "github" -skip-duplicate
           
     #  - name: Archive Nuget Package
      #   uses: actions/upload-artifact@v1
