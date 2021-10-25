@@ -62,7 +62,7 @@ jobs:
   #To Add nuget artifacts repository as source to push artifacts.
       - name: AddSource
         run: |
-          dotnet nuget sources Add -Name Artifactory -Source "jfrog" -username  ${{ secrets.JFROG_USER_NAME }} -password ${{ secrets.JFROG_PASSWORD }}
+          dotnet nuget Add source -Name Artifactory -Source https://daniainavilli.jfrog.io/artifactory/local10_20/
           dotnet nuget add source "https://nuget.pkg.github.com/DaniSuresh/index.json" -n "github" 
           
 #To push nuget artifacts 
