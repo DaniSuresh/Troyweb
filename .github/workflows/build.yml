@@ -62,7 +62,7 @@ jobs:
  #To Add nuget artifacts repository as source to push artifacts.
       - name: AddSource
         run: |
-          dotnet nuget sources Add -Name Troyweb -Source https://daniainavilli.jfrog.io/artifactory/local_10_19/
+          dotnet nuget sources Add -Name nuget.config -Source https://daniainavilli.jfrog.io/artifactory/local_10_19/
          
           
 #To push nuget artifacts 
