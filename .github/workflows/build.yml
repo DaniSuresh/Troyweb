@@ -69,7 +69,7 @@ jobs:
           $timestamp = Get-Date -Format "yyyy-MM-dd-HH-mm-ss"
           $runnumber = $env:GITHUB_RUN_NUMBER
           $JfrogArtifactName = "$ArtifactName-$runnumber"
-          Compress-Archive D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\netcoreapp3.1\publish\* .\$JfrogArtifactName
+          Compress-Archive D:\a\Troyweb\Troyweb\Troyweb\bin\Release\netcoreapp3.1\publish\* .\$JfrogArtifactName
           $JfrogPassword =  "${{ secrets.JFROG_PASSWORD }}" 
           $JfrogCred = New-Object System.Management.Automation.PSCredential ( "${{ secrets.JFROG_USER_NAME }}" , $JfrogPassword)
           $ArtifactSourceFile = "D:\a\Troyweb\Troyweb\$JfrogArtifactName.zip"
