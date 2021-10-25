@@ -74,7 +74,7 @@ jobs:
           $JfrogCred =  ( "${{ secrets.JFROG_USER_NAME }}" , $JfrogPassword)
           $ArtifactSourceFile = "D:\a\Troyweb\Troyweb\$JfrogArtifactName.zip"
           $ArtifactDestinationUrl = "https://daniainavilli.jfrog.io/artifactory/local10_20/$JfrogArtifactName.zip"
-          Invoke-WebRequest -url $ArtifactDestinationUri -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
+          Invoke-WebRequest -url $ArtifactDestinationUrl -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
           $ArtifactDestinationUrlLatest = "${{ secrets.JFROG_RAW_REPO_URL }}/$ArtifactName-latest.zip"
           Invoke-WebRequest -url $ArtifactDestinationUriLatest -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
          
