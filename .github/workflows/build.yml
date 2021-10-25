@@ -52,6 +52,13 @@ jobs:
       - name: Build
         run: msbuild ./Troyweb.sln
         
+      - name: Archive Nuget Package
+        uses: actions/upload-artifact@v1
+        with:
+         name: Troyweb
+         path: 'D:\a\Troyweb\Troyweb\Troyweb'
+         
+        
  #To Add nuget artifacts repository as source to push artifacts.
       - name: AddSource
         run: |
@@ -64,13 +71,6 @@ jobs:
           dotnet nuget push Troyweb.1.0.0.nupkg -Source https://daniainavilli.jfrog.io/artifactory/local_10_19/
           
           
-    #  - name: Archive Nuget Package
-     #   uses: actions/upload-artifact@v1
-      #  with:
-       #  name: Troyweb
-       #  path: 'D:\a\Troyweb\Troyweb\Troyweb'
-         
-#To Publish dotnet application
-     # - name: Publish
-      #  run: dotnet publish --configuration release
+      
+
 
