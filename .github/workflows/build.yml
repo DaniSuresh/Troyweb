@@ -70,17 +70,19 @@ jobs:
           $runnumber = $env:GITHUB_RUN_NUMBER
           $JfrogArtifactName = "$ArtifactName-$runnumber"
           Compress-Archive D:\a\Troyweb\Troyweb\Troyweb\bin\Release\netcoreapp3.1\publish\* .\$JfrogArtifactName
+          $JfrogPassword =  "${{ secrets.JFROG_PASSWORD }}" 
+          $JfrogCred =  ("${{ secrets.JFROG_USER_NAME }}" , $JfrogPassword)
+          $ArtifactSourceFile = "D:\a\Troyweb\Troyweb\$JfrogArtifactName.zip"
+          $ArtifactDestinationUrl = "https://daniainavilli.jfrog.io/artifactory/local10_20
+          
           
 #To push nuget artifacts 
-      - name: push nuget package
-        run: |
-          dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Release\Troyweb.1.0.0.nupkg" --api-key ${{ secrets.TOKEN_LOCAL_10_19}}  --source "https://daniainavilli.jfrog.io/artifactory/local10_20/"
-          dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Release\Troyweb*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github"           
-         
-         
-         
-        
-  #To Add nuget artifacts repository as source to push artifacts.
+     # - name: push nuget package
+      #  run: |
+         # dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Release\Troyweb.1.0.0.nupkg" --api-key ${{ secrets.TOKEN_LOCAL_10_19}}  --source "https://daniainavilli.jfrog.io/artifactory/local10_20/"
+         # dotnet nuget push "D:\a\Troyweb\Troyweb\Troyweb\bin\Release\Troyweb*.nupkg"  --api-key ${{ secrets.TOKEN_GITHUB }} --source "github"                  
+ 
+ #To Add nuget artifacts repository as source to push artifacts.
      # - name: AddSource
      #   run: |
      #     dotnet nuget Add source "https://daniainavilli.jfrog.io/artifactory/local10_20/" --name "Troyweb" 
