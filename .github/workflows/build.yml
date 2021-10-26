@@ -77,9 +77,7 @@ jobs:
           $ArtifactSourceFile = "D:\a\Troyweb\Troyweb\$JforgArtifactName.zip"
           $ArtifactDestinationUri = "${{ secrets.JFROG_RAW_REPO_URL }}/$JfrogArtifactName.zip"
           Invoke-WebRequest -uri $ArtifactDestinationUri -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
-          $ArtifactDestinationUriLatest = "${{ secrets.JFROG_RAW_REPO_URL }}/$ArtifactName-latest.zip"
-          Invoke-WebRequest -uri $ArtifactDestinationUriLatest -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
-      
+                
       #- name: Upload artifact and release
        # uses: nanoufo/action-upload-artifacts-and-release-assets@main
        # with:
