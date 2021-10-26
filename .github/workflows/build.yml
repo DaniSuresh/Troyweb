@@ -74,8 +74,8 @@ jobs:
           Compress-Archive D:\a\Troyweb\Troyweb\Troyweb\bin\Release\netcoreapp3.1\publish\* .\$JfrogArtifactName
           $JfrogPassword = ConvertTo-SecureString "${{ secrets.JFROG_PASSWORD }}" -AsPlainText -Force
           $JfrogCred = New-Object System.Management.Automation.PSCredential ( "${{ secrets.JFROG_USER_NAME }}" , $JfrogPassword)
-          $ArtifactSourceFile = "D:\a\Troyweb\Troyweb\$JforgArtifactName.zip"
-          $ArtifactDestinationUri = "${{ secrets.JFROG_RAW_REPO_URL }}/$JfrogArtifactName.zip"
+          $ArtifactSourceFile = "D:\a\Troyweb\Troyweb\Troyweb\$JforgArtifactName.zip"
+          $ArtifactDestinationUri = "${{ secrets.JFROG_REPO_URL }}/$JfrogArtifactName.zip"
           Invoke-WebRequest -uri $ArtifactDestinationUri -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
                 
       #- name: Upload artifact and release
