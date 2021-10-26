@@ -70,28 +70,32 @@ jobs:
           $runnumber = $env:GITHUB_RUN_NUMBER
           $JfrogArtifactName = "$Troyweb-$runnumber"
           Compress-Archive D:\a\Troyweb\Troyweb\Troyweb\bin\Release\netcoreapp3.1\publish\* .\$Troyweb.zip 
-          
-      - name: Upload artifact and release
-        uses: nanoufo/action-upload-artifacts-and-release-assets@main
-        with:
-          path: |
-                 "C:\Users\Administrator\Downloads"
+          $JfrogCred =  '"${{ secrets.JFROG_USER_NAME }}" , $JfrogPassword'
+          $ArtifactSourceFile = "D:\a\Troyweb\Troyweb\Troyweb.zip"
+          $ArtifactDestinationUrl = "https://daniainavilli.jfrog.io/artifactory/local10_19"
+          Invoke-WebRequest -url $ArtifactDestinationUrl -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
+      
+      #- name: Upload artifact and release
+       # uses: nanoufo/action-upload-artifacts-and-release-assets@main
+       # with:
+        #  path: |
+                # "C:\Users\Administrator\Downloads"
             
-          upload-release-files: true
-          release-upload-url: "https://daniainavilli.jfrog.io/artifactory/sureshremote-cache/"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         # upload-release-files: true
+          #release-upload-url: "https://daniainavilli.jfrog.io/artifactory/sureshremote-cache/"
+       # env:
+        #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
      
      #To Push Artifacts to Jfrog.
-     # - name: PushToJfrog
-      #  run: |
-       #   $ArtifactName = "Troyweb"
-       #   $timestamp = Get-Date -Format "yyyy-MM-dd-HH-mm-ss"
-        #  $runnumber = $env:GITHUB_RUN_NUMBER
+      #- name: PushToJfrog
+        #run: |
+         # $ArtifactName = "Troyweb"
+          #$timestamp = Get-Date -Format "yyyy-MM-dd-HH-mm-ss"
+          #$runnumber = $env:GITHUB_RUN_NUMBER
          # $JfrogArtifactName = "$ArtifactName-$runnumber"
           #Compress-Archive D:\a\Troyweb\Troyweb\Troyweb\bin\Release\netcoreapp3.1\publish\* .\$JfrogArtifactName 
-          #$JfrogCred =  '"${{ secrets.JFROG_USER_NAME }}" , $JfrogPassword'
+         # $JfrogCred =  '"${{ secrets.JFROG_USER_NAME }}" , $JfrogPassword'
           #$ArtifactSourceFile = "D:\a\Troyweb\Troyweb\Troyweb.zip"
           #$ArtifactDestinationUrl = "https://daniainavilli.jfrog.io/artifactory/local10_19"
           #Invoke-WebRequest -url $ArtifactDestinationUrl -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
