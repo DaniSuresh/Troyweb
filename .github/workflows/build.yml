@@ -70,9 +70,9 @@ jobs:
             "D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg"
             
           upload-release-files: true
-          release-upload-url: "https://daniainavilli.jfrog.io/artifactory/local10_19"
+          release-upload-url: "https://daniainavilli.jfrog.io/artifactory/sureshremote-cache/"
         env:
-          JFROG_TOKEN: ${{ secrets.local10_19 }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
      
      #To Push Artifacts to Jfrog.
