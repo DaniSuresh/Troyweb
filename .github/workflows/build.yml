@@ -62,12 +62,20 @@ jobs:
       - name: Publish
         run: dotnet publish --configuration release
         
-        
+   #To Push Artifacts to Jfrog.
+      - name: PushToJfrog
+        run: |
+          $ArtifactName = "Troyweb"
+          $timestamp = Get-Date -Format "yyyy-MM-dd-HH-mm-ss"
+          $runnumber = $env:GITHUB_RUN_NUMBER
+          $JfrogArtifactName = "$Troyweb-$runnumber"
+          Compress-Archive D:\a\Troyweb\Troyweb\Troyweb\bin\Release\netcoreapp3.1\publish\* .\$Troyweb.zip 
+          
       - name: Upload artifact and release
         uses: nanoufo/action-upload-artifacts-and-release-assets@main
         with:
           path: |
-                 "C:\Troyweb\Troyweb\bin\Debug"
+                 "D:\a\Troyweb\Troyweb\Troyweb\bin\Release"
             
           upload-release-files: true
           release-upload-url: "https://daniainavilli.jfrog.io/artifactory/sureshremote-cache/"
