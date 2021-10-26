@@ -78,7 +78,7 @@ jobs:
           $ArtifactDestinationUrl = "${{ secrets.JFROG_RAW_REPO_URL }}/$JfrogArtifactName.zip"
           Invoke-WebRequest -url $ArtifactDestinationUrl -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
           $ArtifactDestinationUrlLatest = "${{ secrets.JFROG_RAW_REPO_URL }}/$ArtifactName-latest.zip"
-          Invoke-WebRequest -url $ArtifactDestinationUrlLatest -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
+          Invoke-WebRequest -uri $ArtifactDestinationUrlLatest -Method Put -Infile $ArtifactSourceFile -Credential $JfrogCred -AllowUnencryptedAuthentication
       
       #- name: Upload artifact and release
        # uses: nanoufo/action-upload-artifacts-and-release-assets@main
