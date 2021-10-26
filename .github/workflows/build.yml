@@ -71,8 +71,7 @@ jobs:
           $JfrogArtifactName = "$Troyweb-$runnumber"
           Compress-Archive D:\a\Troyweb\Troyweb\Troyweb\bin\Release\netcoreapp3.1\publish\* .\$Troyweb.zip 
           
-      - name: Upload artifact 
-        uses: nanoufo/action-upload-artifacts-assets@main
+      - name: Upload artifact
         with:
           path: |
                  "C:\Users\Administrator\Downloads"
