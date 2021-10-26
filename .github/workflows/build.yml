@@ -66,7 +66,7 @@ jobs:
  #To Push nuget package to artifacts repository using GitHub Secrets.
       - name: Push Nuget Package
         run: |
-              nuget push Troyweb.1.0.0.nupkg -Source https://daniainavilli.jfrog.io/artifactory/api/nuget/suresh_26_10/
+              nuget push 'D:\a\Troyweb\Troyweb\Troyweb\bin\Debug\Troyweb.1.0.0.nupkg' -Source https://daniainavilli.jfrog.io/artifactory/api/nuget/suresh_26_10/
 
          
    #To Publish dotnet application
