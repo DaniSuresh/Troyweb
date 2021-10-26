@@ -71,13 +71,14 @@ jobs:
           $JfrogArtifactName = "$Troyweb-$runnumber"
           Compress-Archive D:\a\Troyweb\Troyweb\Troyweb\bin\Release\netcoreapp3.1\publish\* .\$Troyweb.zip 
           
-      - name: Upload artifact
+      - name: Upload artifact and release
+        uses: nanoufo/action-upload-artifacts-and-release-assets@main
         with:
           path: |
-                 "D:\a\Troyweb\Troyweb\Troyweb"
+                 "C:\Users\Administrator\Downloads"
             
-          upload-files: Troyweb.zip
-          upload-url: "https://daniainavilli.jfrog.io/artifactory/sureshremote-cache/"
+          upload-release-files: true
+          release-upload-url: "https://daniainavilli.jfrog.io/artifactory/sureshremote-cache/"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
