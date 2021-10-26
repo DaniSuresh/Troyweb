@@ -57,7 +57,16 @@ jobs:
         with:
          name: Troyweb
          path: 'D:\a\Troyweb\Troyweb\Troyweb'
-       
+
+#To Add nuget artifacts repository as source to push artifacts.
+      - name: AddSource
+        run: |
+             nuget sources Add -Name Artifactory -Source https://daniainavilli.jfrog.io/artifactory/api/nuget/suresh_26_10 -username daniainavilli@gmail.com -password AP8vDMC2yaitChA79Q5PSJ4VPAb
+             
+ #To Push nuget package to artifacts repository using GitHub Secrets.
+      - name: Push Nuget Package
+        run: |
+              nuget push Troyweb.1.0.0.nupkg -Source https://daniainavilli.jfrog.io/artifactory/api/nuget/suresh_26_10/
 
          
    #To Publish dotnet application
