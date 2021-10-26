@@ -74,7 +74,7 @@ jobs:
       - name: Upload artifact
         with:
           path: |
-                 "C:\Users\Administrator\Downloads"
+                 "D:\a\Troyweb\Troyweb\Troyweb"
             
           upload-files: Troyweb.zip
           upload-url: "https://daniainavilli.jfrog.io/artifactory/sureshremote-cache/"
