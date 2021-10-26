@@ -67,7 +67,7 @@ jobs:
         uses: nanoufo/action-upload-artifacts-and-release-assets@main
         with:
           path: |
-                 "D:\a\Troyweb\Troyweb\Troyweb\"
+                 "C:\Troyweb\Troyweb\bin\Debug"
             
           upload-release-files: true
           release-upload-url: "https://daniainavilli.jfrog.io/artifactory/sureshremote-cache/"
